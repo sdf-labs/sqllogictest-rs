@@ -648,6 +648,7 @@ fn parse_inner<T: ColumnType>(loc: &Location, script: &str) -> Result<Vec<Record
 
         let mut loc = loc.clone();
         loc.line = num as u32 + 1;
+        let line = line.split('#').next().unwrap();
 
         let tokens: Vec<&str> = line.split_whitespace().collect();
         match tokens.as_slice() {
